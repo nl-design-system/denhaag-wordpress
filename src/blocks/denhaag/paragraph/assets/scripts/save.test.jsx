@@ -1,3 +1,4 @@
+/* eslint-env jest */
 import { render } from '@testing-library/react';
 import SaveParagraph from './save';
 import '@testing-library/jest-dom';
