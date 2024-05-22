@@ -15,10 +15,10 @@ jobs:
 
         steps:
             - name: Checkout branch
-              uses: actions/checkout@v3
+              uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
 
             - name: Install dependencies
-              uses: php-actions/composer@v6
+              uses: php-actions/composer@8a65f0d3c6a1d17ca4800491a40b5756a4c164f3 # v6
               with:
                   php_version: ${{ matrix.php_version }}
                   version: '2.x'
