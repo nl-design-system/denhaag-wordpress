@@ -11,9 +11,9 @@ import { useMemo } from '@wordpress/element';
  * @return {JSX.Element}
  * @constructor
  */
-const NCB_HasAuthorControl = ({ value = false, setAttributes }) => {
-	return useMemo(() => {
-		const label = !!value
+const NCB_HasAuthorControl = ( { value = false, setAttributes } ) => {
+	return useMemo( () => {
+		const label = !! value
 			? _x(
 					'Quote without author',
 					'NCB_HasAuthorControl label',
@@ -26,13 +26,13 @@ const NCB_HasAuthorControl = ({ value = false, setAttributes }) => {
 			  );
 		return (
 			<ToolbarButton
-				icon={postAuthor}
-				label={label}
-				onClick={() => setAttributes({ hasAuthor: !value })}
-				isActive={!!value}
+				icon={ postAuthor }
+				label={ label }
+				onClick={ () => setAttributes( { hasAuthor: ! value } ) }
+				isActive={ !! value }
 			/>
 		);
-	}, [value]);
+	}, [ value ] );
 };
 
 export default NCB_HasAuthorControl;

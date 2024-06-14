@@ -11,28 +11,28 @@ import { sprintf, __ } from '@wordpress/i18n';
  * @returns {unknown}
  * @constructor
  */
-const NCB_EmbedYouTubePortraitControls = ({
+const NCB_EmbedYouTubePortraitControls = ( {
 	value = false,
 	isDisabled = false,
 	setAttributes,
-}) => {
-	return useMemo(() => {
-		const label = !!value
-			? __('Disable', 'nlds-community-blocks')
-			: __('Enable', 'nlds-community-blocks');
+} ) => {
+	return useMemo( () => {
+		const label = !! value
+			? __( 'Disable', 'nlds-community-blocks' )
+			: __( 'Enable', 'nlds-community-blocks' );
 		return (
 			<ToolbarButton
 				icon="image-rotate-left"
-				label={sprintf(
-					__('%s autoplay', 'nlds-community-blocks'),
+				label={ sprintf(
+					__( '%s autoplay', 'nlds-community-blocks' ),
 					label
-				)}
-				onClick={() => setAttributes({ portrait: !value })}
-				isActive={!!value}
-				disabled={!!isDisabled}
+				) }
+				onClick={ () => setAttributes( { portrait: ! value } ) }
+				isActive={ !! value }
+				disabled={ !! isDisabled }
 			/>
 		);
-	}, [value]);
+	}, [ value ] );
 };
 
 export default NCB_EmbedYouTubePortraitControls;

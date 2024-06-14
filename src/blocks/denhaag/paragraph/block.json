@@ -18,7 +18,7 @@
 		"variation": {
 			"type": "string",
 			"default": "",
-			"enum": ["small", "lead", "detail"]
+			"enum": [ "small", "lead", "detail" ]
 		}
 	},
 	"example": {
@@ -26,7 +26,7 @@
 			"content": "This shows the default paragraph content."
 		}
 	},
-	"style": ["ncb-denhaag-typography", "ncb-denhaag-link"],
+	"style": [ "ncb-denhaag-typography", "ncb-denhaag-link" ],
 	"supports": {
 		"align": false,
 		"className": false,
@@ -83,6 +83,6 @@
 			}
 		}
 	],
-	"keywords": ["content", "denhaag", "text"],
+	"keywords": [ "content", "denhaag", "text" ],
 	"version": "2.0.0"
 }

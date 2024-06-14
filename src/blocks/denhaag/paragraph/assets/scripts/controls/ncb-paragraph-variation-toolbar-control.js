@@ -12,32 +12,32 @@ import { useMemo } from '@wordpress/element';
  * @return {unknown}
  * @constructor
  */
-const NCB_ParagraphVariationToolbarControl = ({ value, setAttributes }) => {
+const NCB_ParagraphVariationToolbarControl = ( { value, setAttributes } ) => {
 	// On update `value` the controller will be rendered.
-	return useMemo(() => {
+	return useMemo( () => {
 		return (
 			<Dropdown
-				renderToggle={({ onToggle }) => (
+				renderToggle={ ( { onToggle } ) => (
 					<ToolbarButton
-						icon={formatUppercase}
-						label={_x(
+						icon={ formatUppercase }
+						label={ _x(
 							'Select variation',
 							'ncb-denhaag/paragraph: Toolbar Button label',
 							'nlds-community-blocks'
-						)}
-						onClick={onToggle}
-						isActive={!!value}
+						) }
+						onClick={ onToggle }
+						isActive={ !! value }
 					/>
-				)}
-				renderContent={() => (
+				) }
+				renderContent={ () => (
 					<NCB_ParagraphVariationControl
-						value={value}
-						setAttributes={setAttributes}
+						value={ value }
+						setAttributes={ setAttributes }
 					/>
-				)}
+				) }
 			/>
 		);
-	}, [value]);
+	}, [ value ] );
 };
 
 export default NCB_ParagraphVariationToolbarControl;

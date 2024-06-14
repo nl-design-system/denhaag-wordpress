@@ -4,45 +4,45 @@ import { _x } from '@wordpress/i18n';
 import { BlockControls, RichText } from '@wordpress/block-editor';
 import { useLayoutEffect } from '@wordpress/element';
 
-export default function edit({ attributes, setAttributes }) {
-	useLayoutEffect(() => {
+export default function edit( { attributes, setAttributes } ) {
+	useLayoutEffect( () => {
 		// Remove `<meta charset="utf-8">` from copy-and-paste actions.
 		if (
-			!!attributes.quote &&
-			!!attributes.quote.includes('<meta charset="utf-8">')
+			!! attributes.quote &&
+			!! attributes.quote.includes( '<meta charset="utf-8">' )
 		) {
-			setAttributes({
+			setAttributes( {
 				quote: attributes.quote
-					.replace(/<meta charSet="utf-8">/gim, '')
+					.replace( /<meta charSet="utf-8">/gim, '' )
 					.trim(),
-			});
+			} );
 		}
-	}, [attributes.quote]);
+	}, [ attributes.quote ] );
 
-	useLayoutEffect(() => {
+	useLayoutEffect( () => {
 		// Remove `<meta charset="utf-8">` from copy-and-paste actions.
 		if (
-			!!attributes.author &&
-			!!attributes.author.includes('<meta charset="utf-8">')
+			!! attributes.author &&
+			!! attributes.author.includes( '<meta charset="utf-8">' )
 		) {
-			setAttributes({
+			setAttributes( {
 				author: attributes.author
-					.replace(/<meta charSet="utf-8">/gim, '')
+					.replace( /<meta charSet="utf-8">/gim, '' )
 					.trim(),
-			});
+			} );
 		}
-	}, [attributes.author]);
+	}, [ attributes.author ] );
 
 	return (
 		<>
 			<BlockControls>
 				<NCB_LinkControls
-					value={attributes.link}
-					setAttributes={setAttributes}
+					value={ attributes.link }
+					setAttributes={ setAttributes }
 				/>
 				<NCB_BlockquoteHasAuthorControl
-					value={attributes.hasAuthor}
-					setAttributes={setAttributes}
+					value={ attributes.hasAuthor }
+					setAttributes={ setAttributes }
 				/>
 			</BlockControls>
 
@@ -59,32 +59,32 @@ export default function edit({ attributes, setAttributes }) {
 						identifier="quote"
 						tagName="p"
 						withoutInteractiveFormatting
-						placeholder={_x(
+						placeholder={ _x(
 							'Add quote…',
 							'ncb-denhaag/blockquote: Quote placeholder',
 							'nlds-community-blocks'
-						)}
-						value={attributes.quote}
-						onChange={(quote) => setAttributes({ quote })}
-						allowedFormats={[]}
+						) }
+						value={ attributes.quote }
+						onChange={ ( quote ) => setAttributes( { quote } ) }
+						allowedFormats={ [] }
 					/>
 				</blockquote>
-				{!!attributes.hasAuthor && (
+				{ !! attributes.hasAuthor && (
 					<RichText
 						identifier="caption"
 						tagName="figcaption"
 						className="denhaag-blockquote__attribution"
-						placeholder={_x(
+						placeholder={ _x(
 							'Author name…',
 							'ncb-denhaag/blockquote: Author placeholder',
 							'nlds-community-blocks'
-						)}
-						value={attributes.author}
-						onChange={(author) => setAttributes({ author })}
-						allowedFormats={[]}
+						) }
+						value={ attributes.author }
+						onChange={ ( author ) => setAttributes( { author } ) }
+						allowedFormats={ [] }
 						withoutInteractiveFormatting
 					/>
-				)}
+				) }
 			</figure>
 		</>
 	);

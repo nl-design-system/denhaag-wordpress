@@ -12,29 +12,29 @@ import { ReactComponent as icon } from '../../icons/video-settings.svg';
  * @returns {unknown}
  * @constructor
  */
-const NCB_EmbedYouTubeControlsControl = ({
+const NCB_EmbedYouTubeControlsControl = ( {
 	value = false,
 	isDisabled = false,
 	setAttributes,
-}) => {
-	return useMemo(() => {
-		const label = !!value
-			? __('Hide', 'nlds-community-blocks')
-			: __('Show', 'nlds-community-blocks');
+} ) => {
+	return useMemo( () => {
+		const label = !! value
+			? __( 'Hide', 'nlds-community-blocks' )
+			: __( 'Show', 'nlds-community-blocks' );
 
 		return (
 			<ToolbarButton
-				icon={icon}
-				label={sprintf(
-					__('%s video controls', 'nlds-community-blocks'),
+				icon={ icon }
+				label={ sprintf(
+					__( '%s video controls', 'nlds-community-blocks' ),
 					label
-				)}
-				onClick={() => setAttributes({ controls: !value })}
-				isActive={!!value}
-				disabled={!!isDisabled}
+				) }
+				onClick={ () => setAttributes( { controls: ! value } ) }
+				isActive={ !! value }
+				disabled={ !! isDisabled }
 			/>
 		);
-	}, [value]);
+	}, [ value ] );
 };
 
 export default NCB_EmbedYouTubeControlsControl;

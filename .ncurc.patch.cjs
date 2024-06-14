@@ -1,5 +1,5 @@
 module.exports = {
-	dep: ['dev', 'prod'],
+	dep: [ 'dev', 'prod' ],
 	install: 'always',
 	reject: [],
 	target: 'patch',

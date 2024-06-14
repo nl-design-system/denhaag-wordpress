@@ -7,7 +7,7 @@
 	"attributes": {
 		"allowedLevels": {
 			"type": "array",
-			"default": [2, 3, 4, 5, 6]
+			"default": [ 2, 3, 4, 5, 6 ]
 		},
 		"content": {
 			"type": "string",
@@ -46,14 +46,14 @@
 			}
 		}
 	],
-	"style": ["ncb-denhaag-typography"],
-	"editorStyle": ["ncb-denhaag-heading-block-editor"],
+	"style": [ "ncb-denhaag-typography" ],
+	"editorStyle": [ "ncb-denhaag-heading-block-editor" ],
 	"supports": {
 		"className": false,
 		"customClassName": false,
 		"html": false
 	},
-	"keywords": ["denhaag", "heading", "title"],
+	"keywords": [ "denhaag", "heading", "title" ],
 	"textdomain": "nlds-community-blocks",
 	"version": "2.0.1"
 }

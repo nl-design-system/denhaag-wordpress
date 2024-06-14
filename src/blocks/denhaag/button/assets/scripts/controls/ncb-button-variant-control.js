@@ -12,13 +12,13 @@ import { symbolFilled, symbol } from '@wordpress/icons';
  * @return {unknown}
  * @constructor
  */
-const NCB_ButtonVariantControl = ({
+const NCB_ButtonVariantControl = ( {
 	value = false,
 	isDisabled = false,
 	setAttributes,
-}) => {
+} ) => {
 	// On update `value` the controller will be rendered.
-	return useMemo(() => {
+	return useMemo( () => {
 		const _VARIATIONS = [
 			{
 				label: _x(
@@ -42,28 +42,30 @@ const NCB_ButtonVariantControl = ({
 
 		return (
 			<ToolbarGroup>
-				{_VARIATIONS.map((v) => {
+				{ _VARIATIONS.map( ( v ) => {
 					return (
 						<ToolbarButton
-							key={v.value}
-							onClick={() => setAttributes({ variant: v.value })}
-							icon={v.icon}
-							label={sprintf(
+							key={ v.value }
+							onClick={ () =>
+								setAttributes( { variant: v.value } )
+							}
+							icon={ v.icon }
+							label={ sprintf(
 								_x(
 									'Set %s button style',
 									'ncb-denhaag/button: Control label',
 									'nlds-community-blocks'
 								),
 								v.label
-							)}
-							isPressed={v.value === value}
-							disabled={isDisabled}
+							) }
+							isPressed={ v.value === value }
+							disabled={ isDisabled }
 						/>
 					);
-				})}
+				} ) }
 			</ToolbarGroup>
 		);
-	}, [value, isDisabled]);
+	}, [ value, isDisabled ] );
 };
 
 export default NCB_ButtonVariantControl;

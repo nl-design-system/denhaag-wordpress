@@ -4,7 +4,7 @@
 	"name": "ncb-denhaag/accordion-item",
 	"category": "nlds-community-denhaag-blocks",
 	"icon": "minus",
-	"parent": ["ncb-denhaag/accordion"],
+	"parent": [ "ncb-denhaag/accordion" ],
 	"attributes": {
 		"title": {
 			"type": "string"
@@ -12,7 +12,7 @@
 		"heading": {
 			"type": "number",
 			"default": 3,
-			"enum": [3, 4]
+			"enum": [ 3, 4 ]
 		}
 	},
 	"example": {
@@ -21,13 +21,13 @@
 			"title": "Example heading"
 		}
 	},
-	"usesContext": ["ncb-denhaag/accordion-heading"],
+	"usesContext": [ "ncb-denhaag/accordion-heading" ],
 	"supports": {
 		"className": false,
 		"customClassName": false,
 		"html": false
 	},
-	"editorStyle": ["ncb-denhaag-accordion-item-block-editor"],
+	"editorStyle": [ "ncb-denhaag-accordion-item-block-editor" ],
 	"textdomain": "nlds-community-blocks",
 	"version": "2.0.0"
 }

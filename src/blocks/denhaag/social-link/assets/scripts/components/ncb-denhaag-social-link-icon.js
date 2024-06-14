@@ -14,11 +14,11 @@ import { ReactComponent as WhatsApp } from '../../icons/whatsapp.svg';
  * @return {unknown}
  * @constructor
  */
-const NCB_DenhaagSocialLinkIcon = ({ url }) => {
+const NCB_DenhaagSocialLinkIcon = ( { url } ) => {
 	// On update `value` the controller will be rendered.
 
-	return useMemo(() => {
-		if (!url) {
+	return useMemo( () => {
+		if ( ! url ) {
 			return _x(
 				'No link provided',
 				'denhaag/social-link icon: Notice',
@@ -26,26 +26,26 @@ const NCB_DenhaagSocialLinkIcon = ({ url }) => {
 			);
 		}
 
-		if (url.includes('facebook.com')) {
+		if ( url.includes( 'facebook.com' ) ) {
 			return <Facebook />;
 		}
-		if (url.includes('twitter.com')) {
+		if ( url.includes( 'twitter.com' ) ) {
 			return <Twitter />;
 		}
-		if (url.includes('instagram.com')) {
+		if ( url.includes( 'instagram.com' ) ) {
 			return <Instagram />;
 		}
-		if (url.includes('linkedin.com')) {
+		if ( url.includes( 'linkedin.com' ) ) {
 			return <LinkedIn />;
 		}
 		if (
-			url.includes('youtube.com') ||
-			url.includes('youtu.be') ||
-			url.includes('youtube-nocookie.com')
+			url.includes( 'youtube.com' ) ||
+			url.includes( 'youtu.be' ) ||
+			url.includes( 'youtube-nocookie.com' )
 		) {
 			return <YouTube />;
 		}
-		if (url.includes('https://wa.me/')) {
+		if ( url.includes( 'https://wa.me/' ) ) {
 			return <WhatsApp />;
 		}
 
@@ -54,7 +54,7 @@ const NCB_DenhaagSocialLinkIcon = ({ url }) => {
 			'denhaag/social-link icon: Notice',
 			'nlds-community-blocks'
 		);
-	}, [url]);
+	}, [ url ] );
 };
 
 export default NCB_DenhaagSocialLinkIcon;

@@ -10,9 +10,9 @@ import { useMemo } from '@wordpress/element';
  * @return {unknown}
  * @constructor
  */
-const NCB_ParagraphVariationControl = ({ value, setAttributes }) => {
+const NCB_ParagraphVariationControl = ( { value, setAttributes } ) => {
 	// On update `value` the controller will be rendered.
-	return useMemo(() => {
+	return useMemo( () => {
 		const VARIATIONS = [
 			{
 				label: _x(
@@ -59,17 +59,17 @@ const NCB_ParagraphVariationControl = ({ value, setAttributes }) => {
 		return (
 			<SelectControl
 				className="variation-select"
-				label={_x(
+				label={ _x(
 					'Select variation',
 					'denhaag/paragraph: Toolbar Button label',
 					'nlds-community-blocks'
-				)}
-				value={value}
-				options={VARIATIONS}
-				onChange={(variation) => setAttributes({ variation })}
+				) }
+				value={ value }
+				options={ VARIATIONS }
+				onChange={ ( variation ) => setAttributes( { variation } ) }
 			/>
 		);
-	}, [value]);
+	}, [ value ] );
 };
 
 export default NCB_ParagraphVariationControl;

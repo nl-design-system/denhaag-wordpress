@@ -14,65 +14,65 @@ import { ReactComponent as icon } from '../blocks/denhaag/image/assets/icons/res
  * @return {JSX.Element}
  * @constructor
  */
-const NCB_ImageSizeControl = ({
+const NCB_ImageSizeControl = ( {
 	attribute = 'size',
 	isDisabled = false,
 	value,
 	setAttributes,
 	media = {},
-}) => {
+} ) => {
 	/**
 	 * Capitalize the string.
 	 * @param {string} string String to capitalize.
 	 * @return {string} Capitalized string.
 	 */
-	const capitalizeFirstLetter = (string) => {
-		return string.charAt(0).toUpperCase() + string.slice(1);
+	const capitalizeFirstLetter = ( string ) => {
+		return string.charAt( 0 ).toUpperCase() + string.slice( 1 );
 	};
 
-	return useMemo(() => {
+	return useMemo( () => {
 		const options =
-			Object.keys(media).length > 0
-				? Object.keys(media?.media_details?.sizes).map((size) => {
+			Object.keys( media ).length > 0
+				? Object.keys( media?.media_details?.sizes ).map( ( size ) => {
 						return {
-							label: capitalizeFirstLetter(size),
+							label: capitalizeFirstLetter( size ),
 							value: size,
 						};
-				  })
+				  } )
 				: [];
 
 		return (
 			<Dropdown
-				renderToggle={({ onToggle }) => (
+				renderToggle={ ( { onToggle } ) => (
 					<ToolbarButton
-						icon={icon}
-						label={_x(
+						icon={ icon }
+						label={ _x(
 							'Select image size',
 							'NCB_ImageSizeControl label',
 							'nlds-community-blocks'
-						)}
-						onClick={onToggle}
-						isActive={'full' !== value}
-						disabled={isDisabled}
+						) }
+						onClick={ onToggle }
+						isActive={ 'full' !== value }
+						disabled={ isDisabled }
 					/>
-				)}
-				renderContent={() => (
+				) }
+				renderContent={ () => (
 					<SelectControl
-						label={_x(
+						label={ _x(
 							'Select image size',
 							'NCB_ImageSizeControl label',
 							'nlds-community-blocks'
-						)}
-						value={value}
-						options={options}
-						disabled={isDisabled}
-						onChange={(size) =>
-							setAttributes({ [attribute]: size })
+						) }
+						value={ value }
+						options={ options }
+						disabled={ isDisabled }
+						onChange={ ( size ) =>
+							setAttributes( { [ attribute ]: size } )
 						}
 					/>
-				)}
+				) }
 			/>
 		);
-	}, [value, isDisabled, media]);
+	}, [ value, isDisabled, media ] );
 };
 export default NCB_ImageSizeControl;

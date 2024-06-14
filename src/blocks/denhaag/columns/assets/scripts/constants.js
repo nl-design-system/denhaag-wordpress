@@ -3,7 +3,7 @@ import { ReactComponent as iconOneThirdTwoThird } from '../icons/column-one-thir
 import { ReactComponent as iconTwoThirdOneThird } from '../icons/column-two-third-one-third.svg';
 import { ReactComponent as iconOneThirdOneThirdOneThird } from '../icons/column-one-third-one-third-one-third.svg';
 import { ReactComponent as iconSingle } from '../icons/column-single.svg';
-export const _ALLOWED_INNERBLOCKS = ['ncb-denhaag/column'];
+export const _ALLOWED_INNERBLOCKS = [ 'ncb-denhaag/column' ];
 export const _VARIATIONS = [
 	{
 		name: 'single',

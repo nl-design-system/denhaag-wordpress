@@ -13,14 +13,14 @@ import { ReactComponent as NoIcon } from '../../icons/no-icon.svg';
  * @return {unknown}
  * @constructor
  */
-const NCB_ButtonIconControl = ({
+const NCB_ButtonIconControl = ( {
 	value = false,
 	isDisabled = false,
 	setAttributes,
-}) => {
+} ) => {
 	// On update `value` the controller will be rendered.
-	return useMemo(() => {
-		const label = !!value
+	return useMemo( () => {
+		const label = !! value
 			? _x(
 					'Hide',
 					'ncb-denhaag/button: Control label',
@@ -34,9 +34,9 @@ const NCB_ButtonIconControl = ({
 
 		return (
 			<ToolbarButton
-				onClick={() => setAttributes({ icon: !value })}
-				icon={!!value ? HasIcon : NoIcon}
-				label={sprintf(
+				onClick={ () => setAttributes( { icon: ! value } ) }
+				icon={ !! value ? HasIcon : NoIcon }
+				label={ sprintf(
 					'%s %s',
 					label,
 					_x(
@@ -44,12 +44,12 @@ const NCB_ButtonIconControl = ({
 						'ncb-denhaag/button: Control label',
 						'nlds-community-blocks'
 					)
-				)}
-				isPressed={value}
-				disabled={isDisabled}
+				) }
+				isPressed={ value }
+				disabled={ isDisabled }
 			/>
 		);
-	}, [value, isDisabled]);
+	}, [ value, isDisabled ] );
 };
 
 export default NCB_ButtonIconControl;

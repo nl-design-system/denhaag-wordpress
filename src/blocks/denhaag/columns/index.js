@@ -6,9 +6,9 @@ import { ReactComponent as icon } from './assets/icons/block-icon.svg';
 
 const { name } = metadata;
 
-registerBlockType(name, {
+registerBlockType( name, {
 	...metadata,
 	icon,
 	edit,
 	save: () => <InnerBlocks.Content />,
-});
+} );

@@ -8,9 +8,9 @@ import { useLayoutEffect, useMemo } from '@wordpress/element';
 import NCB_ImageSizeControl from '../../../../../editor/ncb-image-size-control';
 import ncb_DenhaagImageSizeByParent from '../../../../../editor/ncb-denhaag-image-size-by-parent';
 
-export default function edit({ attributes, setAttributes, clientId }) {
+export default function edit( { attributes, setAttributes, clientId } ) {
 	const { supported: isSupported } =
-		window.ncb_editor_variables?.denhaag['featured-image'];
+		window.ncb_editor_variables?.denhaag[ 'featured-image' ];
 
 	/**
 	 * Retrieves the post featured image ID.
@@ -18,10 +18,10 @@ export default function edit({ attributes, setAttributes, clientId }) {
 	 *
 	 * @type {import("../../types").UseSelectReturn<function(*): *>}
 	 */
-	const imageId = useSelect((select) => {
-		const { getEditedPostAttribute } = select('core/editor');
-		return getEditedPostAttribute('featured_media');
-	}, []);
+	const imageId = useSelect( ( select ) => {
+		const { getEditedPostAttribute } = select( 'core/editor' );
+		return getEditedPostAttribute( 'featured_media' );
+	}, [] );
 
 	/**
 	 * Returns media-object (same as the WP Rest Media endpoint.
@@ -29,8 +29,8 @@ export default function edit({ attributes, setAttributes, clientId }) {
 	 * @type {import("../../types").UseSelectReturn<function(*): *>}
 	 */
 	const media = useSelect(
-		(select) => select('core').getMedia(imageId),
-		[imageId]
+		( select ) => select( 'core' ).getMedia( imageId ),
+		[ imageId ]
 	);
 
 	/**
@@ -39,29 +39,31 @@ export default function edit({ attributes, setAttributes, clientId }) {
 	 * @type {{image: string, figure: string, root: string}}
 	 * @private
 	 */
-	const _CLASSES = useMemo(() => {
+	const _CLASSES = useMemo( () => {
 		return {
-			root: classNames('denhaag-featured-image', {
+			root: classNames( 'denhaag-featured-image', {
 				'denhaag-featured-image--loading':
-					'object' !== typeof media && !!isSupported,
-				'denhaag-featured-image--not-supported': !isSupported,
-			}),
+					'object' !== typeof media && !! isSupported,
+				'denhaag-featured-image--not-supported': ! isSupported,
+			} ),
 			figure: 'denhaag-image',
 			image: `denhaag-featured-image__image`,
 		};
-	}, [media, isSupported]);
+	}, [ media, isSupported ] );
 
 	/**
 	 * Returns object of image attributes.
 	 *
 	 * @type {{src: string, alt: string}}
 	 */
-	const imageAttributes = useMemo(() => {
-		if (!media) return null;
+	const imageAttributes = useMemo( () => {
+		if ( ! media ) {
+			return null;
+		}
 
 		const sizes = media?.media_details?.sizes;
-		let srcObject = sizes?.[attributes.size];
-		if (!srcObject) {
+		let srcObject = sizes?.[ attributes.size ];
+		if ( ! srcObject ) {
 			// Fallback to always existing image-size.
 			srcObject = sizes?.large || sizes?.medium || sizes?.full;
 		}
@@ -70,38 +72,38 @@ export default function edit({ attributes, setAttributes, clientId }) {
 			src: srcObject?.source_url,
 			alt: media?.alt_text,
 		};
-	}, [media, attributes.size]);
+	}, [ media, attributes.size ] );
 
-	const sizeByParent = ncb_DenhaagImageSizeByParent(clientId, media);
-	useLayoutEffect(() => {
-		if (!!attributes.image && sizeByParent !== attributes.size) {
-			setAttributes({ size: sizeByParent });
+	const sizeByParent = ncb_DenhaagImageSizeByParent( clientId, media );
+	useLayoutEffect( () => {
+		if ( !! attributes.image && sizeByParent !== attributes.size ) {
+			setAttributes( { size: sizeByParent } );
 		}
-	}, [sizeByParent, attributes.image, media]);
+	}, [ sizeByParent, attributes.image, media ] );
 
-	if (!isSupported) {
+	if ( ! isSupported ) {
 		return (
-			<Notice status="warning" isDismissible={false}>
-				{_x(
+			<Notice status="warning" isDismissible={ false }>
+				{ _x(
 					'This post type does not support a featured image',
 					'denhaag/featured-image: notice',
 					'nlds-community-blocks'
-				)}
+				) }
 			</Notice>
 		);
 	}
 
-	if (0 === imageId) {
+	if ( 0 === imageId ) {
 		return (
 			<MediaPlaceholder
-				className={classNames(
+				className={ classNames(
 					'denhaag-featured-image',
 					`denhaag-featured-image--empty`
-				)}
-				multiple={false}
-				allowedTypes={['image']}
-				icon={postFeaturedImage}
-				labels={{
+				) }
+				multiple={ false }
+				allowedTypes={ [ 'image' ] }
+				icon={ postFeaturedImage }
+				labels={ {
 					title: _x(
 						'Featured Image',
 						'denhaag/featured-image: MediaPlaceholder',
@@ -112,19 +114,19 @@ export default function edit({ attributes, setAttributes, clientId }) {
 						'denhaag/featured-image: MediaPlaceholder',
 						'nlds-community-blocks'
 					),
-				}}
-				onSelect={(media) =>
-					dispatch('core/editor').editPost({
+				} }
+				onSelect={ ( media ) =>
+					dispatch( 'core/editor' ).editPost( {
 						featured_media: media.id,
-					})
+					} )
 				}
 			/>
 		);
 	}
 
-	if ('object' !== typeof media) {
+	if ( 'object' !== typeof media ) {
 		return (
-			<div className={_CLASSES.root}>
+			<div className={ _CLASSES.root }>
 				<Spinner />
 			</div>
 		);
@@ -134,19 +136,19 @@ export default function edit({ attributes, setAttributes, clientId }) {
 		<>
 			<BlockControls>
 				<NCB_ImageSizeControl
-					value={attributes.size}
-					isDisabled={!imageId}
-					setAttributes={setAttributes}
-					media={media}
+					value={ attributes.size }
+					isDisabled={ ! imageId }
+					setAttributes={ setAttributes }
+					media={ media }
 				/>
 			</BlockControls>
 
-			<div className={_CLASSES.root}>
-				<figure className={_CLASSES.figure}>
+			<div className={ _CLASSES.root }>
+				<figure className={ _CLASSES.figure }>
 					<img
-						className={_CLASSES.image}
-						src={imageAttributes?.src}
-						alt={imageAttributes.alt}
+						className={ _CLASSES.image }
+						src={ imageAttributes?.src }
+						alt={ imageAttributes.alt }
 						loading="lazy"
 					/>
 				</figure>

@@ -5,7 +5,7 @@
 	"name": "ncb-denhaag/description-list-item",
 	"category": "nlds-community-denhaag-blocks",
 	"textdomain": "nlds-community-blocks",
-	"parent": ["ncb-denhaag/description-list"],
+	"parent": [ "ncb-denhaag/description-list" ],
 	"attributes": {
 		"title": {
 			"type": "string",

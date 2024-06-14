@@ -89,8 +89,8 @@ const deprecatedRules = [
 const modernConfig = {
 	// ...wordpressConfig,
 	rules: Object.fromEntries(
-		Object.entries(wordpressConfig.rules).filter(
-			([key, value]) => !deprecatedRules.includes(key)
+		Object.entries( wordpressConfig.rules ).filter(
+			( [ key, value ] ) => ! deprecatedRules.includes( key )
 		)
 	),
 };

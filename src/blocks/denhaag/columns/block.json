@@ -24,8 +24,8 @@
 	"providesContext": {
 		"ncb-denhaag/columns": "columns"
 	},
-	"style": ["ncb-denhaag-columns-block"],
-	"script": ["ncb-denhaag-columns-block"],
+	"style": [ "ncb-denhaag-columns-block" ],
+	"script": [ "ncb-denhaag-columns-block" ],
 	"version": "1.0.0",
-	"keywords": ["columns", "denhaag"]
+	"keywords": [ "columns", "denhaag" ]
 }
