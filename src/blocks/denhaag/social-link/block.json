@@ -10,7 +10,7 @@
 			"type": "object"
 		}
 	},
-	"parent": ["ncb-denhaag/social-links"],
+	"parent": [ "ncb-denhaag/social-links" ],
 	"supports": {
 		"className": false,
 		"customClassName": false,

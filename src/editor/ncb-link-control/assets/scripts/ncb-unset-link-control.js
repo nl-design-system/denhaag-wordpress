@@ -12,24 +12,24 @@ import { _x } from '@wordpress/i18n';
  * @return {JSX.Element}
  * @constructor
  */
-const NCB_UnsetLinkControl = ({
+const NCB_UnsetLinkControl = ( {
 	attribute,
 	isDisabled = false,
 	setAttributes,
-}) => {
-	return useMemo(() => {
+} ) => {
+	return useMemo( () => {
 		return (
 			<ToolbarButton
-				label={_x(
+				label={ _x(
 					'Remove link',
 					'NCB_UnsetLinkControl label',
 					'nlds-community-blocks'
-				)}
-				disabled={isDisabled}
-				icon={linkOff}
-				onClick={() => setAttributes({ [attribute]: {} })}
+				) }
+				disabled={ isDisabled }
+				icon={ linkOff }
+				onClick={ () => setAttributes( { [ attribute ]: {} } ) }
 			/>
 		);
-	}, [isDisabled]);
+	}, [ isDisabled ] );
 };
 export default NCB_UnsetLinkControl;

@@ -9,7 +9,7 @@
 		"className": false,
 		"customClassName": false
 	},
-	"style": ["ncb-denhaag-divider-block"],
+	"style": [ "ncb-denhaag-divider-block" ],
 	"version": "1.0.0",
-	"keywords": ["denhaag", "divider", "separator"]
+	"keywords": [ "denhaag", "divider", "separator" ]
 }

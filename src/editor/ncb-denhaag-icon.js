@@ -13,21 +13,21 @@ const ncb_denhaag_icon = (
 	id = 'ncb-denhaag-external-icon',
 	attributes = []
 ) => {
-	id = sanitize_title(id);
+	id = sanitize_title( id );
 
 	// Remove the # if applied.
-	if (!!id.startsWith('#')) {
-		id = id.substring(1);
+	if ( !! id.startsWith( '#' ) ) {
+		id = id.substring( 1 );
 	}
 
 	// Prepend with `ncb-denhaag-` for the correct format.
-	if (!id.startsWith('ncb-denhaag-')) {
-		id = `ncb-denhaag-${id}`;
+	if ( ! id.startsWith( 'ncb-denhaag-' ) ) {
+		id = `ncb-denhaag-${ id }`;
 	}
 
 	// Append with `-icon` for the correct format.
-	if (!id.endsWith('-icon')) {
-		id = `${id}-icon`;
+	if ( ! id.endsWith( '-icon' ) ) {
+		id = `${ id }-icon`;
 	}
 
 	const mergedAttr = {
@@ -48,7 +48,7 @@ const ncb_denhaag_icon = (
 
 	return sprintf(
 		'<svg %s><use href="#%s" /></svg>',
-		ncb_to_dom_attributes(mergedAttr),
+		ncb_to_dom_attributes( mergedAttr ),
 		id
 	);
 };
@@ -58,14 +58,14 @@ const ncb_denhaag_icon = (
  * @param string
  * @return {string}
  */
-const sanitize_title = (string) => {
+const sanitize_title = ( string ) => {
 	return string
 		.toLowerCase()
-		.replace(/\s+/g, '-') // Replace spaces with -
-		.replace(/[^\w\-]+/g, '') // Remove all non-word chars
-		.replace(/\-\-+/g, '-') // Replace multiple - with single -
-		.replace(/^-+/, '') // Trim - from start of text
-		.replace(/-+$/, ''); // Trim - from end of text
+		.replace( /\s+/g, '-' ) // Replace spaces with -
+		.replace( /[^\w\-]+/g, '' ) // Remove all non-word chars
+		.replace( /\-\-+/g, '-' ) // Replace multiple - with single -
+		.replace( /^-+/, '' ) // Trim - from start of text
+		.replace( /-+$/, '' ); // Trim - from end of text
 };
 
 export default ncb_denhaag_icon;

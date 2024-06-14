@@ -10,26 +10,26 @@ import ncb_denhaag_icon from '../../../../../../editor/ncb-denhaag-icon';
  * @return {HTMLElement}
  * @constructor
  */
-const NCB_DenhaagMetaSharePreview = ({ showMeta = false }) => {
+const NCB_DenhaagMetaSharePreview = ( { showMeta = false } ) => {
 	const { buttons: config } = window?.ncb_editor_variables?.denhaag?.meta;
 
-	return useMemo(() => {
-		if (!showMeta) {
+	return useMemo( () => {
+		if ( ! showMeta ) {
 			return null;
 		}
 
 		return (
 			<div className="denhaag-meta__buttons">
-				{!!config.readspeaker && (
+				{ !! config.readspeaker && (
 					<div className="denhaag-meta__readspeaker">ReadSpeaker</div>
-				)}
-				{!!config.share && (
+				) }
+				{ !! config.share && (
 					<div
 						className="denhaag-meta__share"
-						dangerouslySetInnerHTML={{
+						dangerouslySetInnerHTML={ {
 							__html: sprintf(
 								'<button %1$s><span class="denhaag-button__icon">%2$s</span>%3$s</button>',
-								ncb_to_dom_attributes({
+								ncb_to_dom_attributes( {
 									id: 'denhaag-share-button',
 									'aria-expanded': 'false',
 									'aria-controls': 'denhaag-meta-share',
@@ -39,19 +39,19 @@ const NCB_DenhaagMetaSharePreview = ({ showMeta = false }) => {
 										'denhaag-button--secondary-action',
 										'denhaag-button--start-icon',
 									],
-								}),
-								ncb_denhaag_icon('share'),
+								} ),
+								ncb_denhaag_icon( 'share' ),
 								_x(
 									'Share',
 									'ncb-denhaag/meta: Share button label',
 									'nlds-community-blocks'
 								)
 							),
-						}}
+						} }
 					></div>
-				)}
+				) }
 			</div>
 		);
-	}, [config]);
+	}, [ config ] );
 };
 export default NCB_DenhaagMetaSharePreview;

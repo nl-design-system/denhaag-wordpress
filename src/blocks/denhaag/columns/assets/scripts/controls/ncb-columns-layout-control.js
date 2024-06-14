@@ -17,63 +17,63 @@ import { _VARIATIONS } from '../constants.js';
  * @return {unknown}
  * @constructor
  */
-const NCB_ColumnsLayoutControl = ({
+const NCB_ColumnsLayoutControl = ( {
 	value,
 	setAttributes,
 	inToolbar = false,
-}) => {
+} ) => {
 	// On update `value` the controller will be rendered.
-	return useMemo(() => {
+	return useMemo( () => {
 		const labelPrefix = _x(
 			'Select %s',
 			'ncb-denhaag/columns: Control prefix',
 			'nlds-community-blocks'
 		);
 
-		if (inToolbar) {
+		if ( inToolbar ) {
 			return (
 				<ToolbarGroup>
-					{_VARIATIONS.map((item) => {
+					{ _VARIATIONS.map( ( item ) => {
 						return (
 							<ToolbarButton
-								key={item.name}
-								onClick={() =>
-									setAttributes({
+								key={ item.name }
+								onClick={ () =>
+									setAttributes( {
 										layout: item.name,
 										columns: item.columns,
-									})
+									} )
 								}
-								icon={item.icon}
-								label={sprintf(labelPrefix, item.label)}
-								isPressed={item.name === value}
+								icon={ item.icon }
+								label={ sprintf( labelPrefix, item.label ) }
+								isPressed={ item.name === value }
 							/>
 						);
-					})}{' '}
+					} ) }{ ' ' }
 				</ToolbarGroup>
 			);
 		}
 
 		return (
 			<ButtonGroup>
-				{_VARIATIONS.map((item) => {
+				{ _VARIATIONS.map( ( item ) => {
 					return (
 						<Button
-							key={item.name}
-							onClick={() =>
-								setAttributes({
+							key={ item.name }
+							onClick={ () =>
+								setAttributes( {
 									layout: item.name,
 									columns: item.columns,
-								})
+								} )
 							}
-							icon={item.icon}
-							label={sprintf(labelPrefix, item.label)}
-							isPressed={item.name === value}
+							icon={ item.icon }
+							label={ sprintf( labelPrefix, item.label ) }
+							isPressed={ item.name === value }
 						/>
 					);
-				})}
+				} ) }
 			</ButtonGroup>
 		);
-	}, [value]);
+	}, [ value ] );
 };
 
 export default NCB_ColumnsLayoutControl;

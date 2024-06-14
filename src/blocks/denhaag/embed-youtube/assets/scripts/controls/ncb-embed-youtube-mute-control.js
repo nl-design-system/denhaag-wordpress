@@ -13,26 +13,29 @@ import { ReactComponent as volumeOffIcon } from '../../icons/volume-off.svg';
  * @returns {unknown}
  * @constructor
  */
-const NCB_EmbedYouTubeMuteControl = ({
+const NCB_EmbedYouTubeMuteControl = ( {
 	value = false,
 	isDisabled = false,
 	setAttributes,
-}) => {
-	return useMemo(() => {
-		const label = !!value
-			? __('Muted', 'nlds-community-blocks')
-			: __('Unmuted', 'nlds-community-blocks');
-		const icon = !!value ? volumeOffIcon : volumeOnIcon;
+} ) => {
+	return useMemo( () => {
+		const label = !! value
+			? __( 'Muted', 'nlds-community-blocks' )
+			: __( 'Unmuted', 'nlds-community-blocks' );
+		const icon = !! value ? volumeOffIcon : volumeOnIcon;
 		return (
 			<ToolbarButton
-				icon={icon}
-				label={sprintf(__('Set %s', 'nlds-community-blocks'), label)}
-				onClick={() => setAttributes({ mute: !value })}
-				isActive={!!value}
-				disabled={!!isDisabled}
+				icon={ icon }
+				label={ sprintf(
+					__( 'Set %s', 'nlds-community-blocks' ),
+					label
+				) }
+				onClick={ () => setAttributes( { mute: ! value } ) }
+				isActive={ !! value }
+				disabled={ !! isDisabled }
 			/>
 		);
-	}, [value]);
+	}, [ value ] );
 };
 
 export default NCB_EmbedYouTubeMuteControl;

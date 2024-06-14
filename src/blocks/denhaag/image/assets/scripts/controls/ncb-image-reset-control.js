@@ -11,29 +11,29 @@ import { ReactComponent as icon } from '../../icons/reset-image.svg';
  * @return {unknown}
  * @constructor
  */
-const NCB_ImageResetControl = ({ isDisabled = false, setAttributes }) => {
+const NCB_ImageResetControl = ( { isDisabled = false, setAttributes } ) => {
 	// On update `value` the controller will be rendered.
-	return useMemo(() => {
+	return useMemo( () => {
 		return (
 			<ToolbarButton
-				onClick={() =>
-					setAttributes({
+				onClick={ () =>
+					setAttributes( {
 						image: 0,
 						download: false,
 						hasCaption: false,
 						caption: '',
-					})
+					} )
 				}
-				icon={icon}
-				label={_x(
+				icon={ icon }
+				label={ _x(
 					'Reset image',
 					'ncb-denhaag/image: Control label',
 					'nlds-community-blocks'
-				)}
-				disabled={isDisabled}
+				) }
+				disabled={ isDisabled }
 			/>
 		);
-	}, [isDisabled]);
+	}, [ isDisabled ] );
 };
 
 export default NCB_ImageResetControl;

@@ -48,8 +48,8 @@
 		"customClassName": false,
 		"html": false
 	},
-	"style": ["ncb-denhaag-embed-youtube-block"],
-	"editorStyle": ["ncb-denhaag-embed-youtube-block-editor"],
+	"style": [ "ncb-denhaag-embed-youtube-block" ],
+	"editorStyle": [ "ncb-denhaag-embed-youtube-block-editor" ],
 	"version": "1.0.0",
-	"keywords": ["denhaag", "video", "YouTube"]
+	"keywords": [ "denhaag", "video", "YouTube" ]
 }

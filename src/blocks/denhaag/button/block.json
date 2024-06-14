@@ -19,15 +19,15 @@
 		"size": {
 			"type": "string",
 			"default": "default",
-			"enum": ["default", "large"]
+			"enum": [ "default", "large" ]
 		},
 		"variant": {
 			"type": "string",
 			"default": "primary",
-			"enum": ["primary", "secondary"]
+			"enum": [ "primary", "secondary" ]
 		}
 	},
-	"parent": ["ncb-denhaag/button-group"],
+	"parent": [ "ncb-denhaag/button-group" ],
 	"supports": {
 		"alignWide": false,
 		"className": false,
@@ -36,8 +36,8 @@
 		"html": false,
 		"transforms": false
 	},
-	"style": ["ncb-denhaag-button-block"],
-	"script": ["ncb-denhaag-button-block"],
+	"style": [ "ncb-denhaag-button-block" ],
+	"script": [ "ncb-denhaag-button-block" ],
 	"textdomain": "nlds-community-blocks",
 	"version": "2.0.0"
 }

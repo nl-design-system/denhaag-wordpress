@@ -27,14 +27,14 @@
 			"default": "full"
 		}
 	},
-	"keywords": ["denhaag", "image", "download", "caption"],
+	"keywords": [ "denhaag", "image", "download", "caption" ],
 	"supports": {
 		"className": false,
 		"customClassName": false,
 		"html": false
 	},
-	"style": ["ncb-denhaag-image-block", "ncb-denhaag-divider-block"],
-	"editorStyle": ["ncb-denhaag-image-block-editor"],
+	"style": [ "ncb-denhaag-image-block", "ncb-denhaag-divider-block" ],
+	"editorStyle": [ "ncb-denhaag-image-block-editor" ],
 	"version": "2.0.0",
 	"variations": [
 		{

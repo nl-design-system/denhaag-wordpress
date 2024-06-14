@@ -1,7 +1,7 @@
 {
 	"title": "Column",
 	"description": "A single column within a columns block.",
-	"parent": ["ncb-denhaag/columns"],
+	"parent": [ "ncb-denhaag/columns" ],
 	"name": "ncb-denhaag/column",
 	"category": "nlds-community-denhaag-blocks-layout",
 	"attributes": {
@@ -14,7 +14,7 @@
 			"default": ""
 		}
 	},
-	"usesContext": ["ncb-denhaag/columns"],
+	"usesContext": [ "ncb-denhaag/columns" ],
 	"supports": {
 		"alignWide": false,
 		"className": false,
@@ -23,8 +23,8 @@
 		"html": false,
 		"transforms": false
 	},
-	"style": ["ncb-denhaag-column-block"],
-	"script": ["ncb-denhaag-column-block"],
+	"style": [ "ncb-denhaag-column-block" ],
+	"script": [ "ncb-denhaag-column-block" ],
 	"version": "1.0.0",
-	"keywords": ["column", "denhaag"]
+	"keywords": [ "column", "denhaag" ]
 }

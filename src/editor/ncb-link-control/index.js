@@ -12,31 +12,31 @@ import { useMemo } from '@wordpress/element';
  * @return {JSX.Element}
  * @constructor
  */
-const NCB_LinkControls = ({
+const NCB_LinkControls = ( {
 	value = {},
 	attribute = 'link',
 	setAttributes,
 	options = {},
-}) => {
-	return useMemo(() => {
+} ) => {
+	return useMemo( () => {
 		// Disable UnsetLinkControl if no value is set.
-		const isDisabled = !value || 0 === Object.keys(value).length;
+		const isDisabled = ! value || 0 === Object.keys( value ).length;
 		return (
 			<ToolbarGroup>
 				<NCB_SetLinkControl
-					attribute={attribute}
-					value={value}
-					setAttributes={setAttributes}
-					options={options}
+					attribute={ attribute }
+					value={ value }
+					setAttributes={ setAttributes }
+					options={ options }
 				/>
 				<NCB_UnsetLinkControl
-					attribute={attribute}
-					isDisabled={isDisabled}
-					setAttributes={setAttributes}
+					attribute={ attribute }
+					isDisabled={ isDisabled }
+					setAttributes={ setAttributes }
 				/>
 			</ToolbarGroup>
 		);
-	}, [value]);
+	}, [ value ] );
 };
 
 export default NCB_LinkControls;

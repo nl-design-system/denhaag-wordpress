@@ -14,27 +14,29 @@ import { ReactComponent as YouTubeLogo } from '../icons/logo.svg';
 import { ReactComponent as Chevron } from '../icons/chevron.svg';
 
 const EMBED_URL = 'https://www.youtube-nocookie.com/embed';
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit( { attributes, setAttributes } ) {
 	/**
 	 * Return iframe src based on input.
 	 * @type {string}
 	 */
-	const iframeSrc = useMemo(() => {
-		if (!attributes.id) {
+	const iframeSrc = useMemo( () => {
+		if ( ! attributes.id ) {
 			return null;
 		}
 
-		const paramString = new URLSearchParams({
-			autoplay: !!attributes.autoplay ? 1 : 0,
-			controls: !!attributes.controls ? 1 : 0,
-			loop: !!attributes.loop ? 1 : 0,
-			mute: !!attributes.mute ? 1 : 0,
+		const paramString = new URLSearchParams( {
+			autoplay: !! attributes.autoplay ? 1 : 0,
+			controls: !! attributes.controls ? 1 : 0,
+			loop: !! attributes.loop ? 1 : 0,
+			mute: !! attributes.mute ? 1 : 0,
 			modestbranding: 0,
 			showinfo: 0,
 			disablekb: 1,
-		}).toString();
+		} ).toString();
 
-		return `${EMBED_URL}/${getYouTubeId(attributes.id)}?${paramString}`;
+		return `${ EMBED_URL }/${ getYouTubeId(
+			attributes.id
+		) }?${ paramString }`;
 	}, [
 		attributes.id,
 		attributes.autoplay,
@@ -42,187 +44,189 @@ export default function Edit({ attributes, setAttributes }) {
 		attributes.loop,
 		attributes.mute,
 		attributes.portrait,
-	]);
+	] );
 
 	// Set URL to video ID.
-	useLayoutEffect(() => {
-		if (!!attributes.id && !!isUrl(attributes.id)) {
-			setAttributes({ id: getYouTubeId(attributes.id) });
+	useLayoutEffect( () => {
+		if ( !! attributes.id && !! isUrl( attributes.id ) ) {
+			setAttributes( { id: getYouTubeId( attributes.id ) } );
 		}
-	}, [attributes.id]);
+	}, [ attributes.id ] );
 
-	const _CLASSES = useMemo(() => {
+	const _CLASSES = useMemo( () => {
 		return {
-			root: classNames('denhaag-embed-youtube', {
-				'denhaag-embed-youtube--no-video': !attributes.id,
-				'denhaag-embed-youtube--portrait': !!attributes.portrait,
-			}),
+			root: classNames( 'denhaag-embed-youtube', {
+				'denhaag-embed-youtube--no-video': ! attributes.id,
+				'denhaag-embed-youtube--portrait': !! attributes.portrait,
+			} ),
 			input: 'denhaag-embed-youtube__input',
 			details: 'denhaag-embed-youtube__details',
 			summary: 'denhaag-embed-youtube__summary',
 			content: 'denhaag-embed-youtube__content',
 		};
-	}, [attributes.id, attributes.portrait]);
+	}, [ attributes.id, attributes.portrait ] );
 
 	return (
 		<>
 			<BlockControls>
 				<ToolbarGroup>
 					<NCB_EmbedYouTubeAutoPlayControls
-						value={!!attributes.autoplay}
-						isDisabled={!attributes.id}
-						setAttributes={setAttributes}
+						value={ !! attributes.autoplay }
+						isDisabled={ ! attributes.id }
+						setAttributes={ setAttributes }
 					/>
 					<NCB_EmbedYouTubeLoopControl
-						value={!!attributes.loop}
-						isDisabled={!attributes.id}
-						setAttributes={setAttributes}
+						value={ !! attributes.loop }
+						isDisabled={ ! attributes.id }
+						setAttributes={ setAttributes }
 					/>
 					<NCB_EmbedYouTubeControlsControl
-						value={!!attributes.controls}
-						isDisabled={!attributes.id}
-						setAttributes={setAttributes}
+						value={ !! attributes.controls }
+						isDisabled={ ! attributes.id }
+						setAttributes={ setAttributes }
 					/>
 					<NCB_EmbedYouTubeMuteControl
-						value={!!attributes.mute}
-						isDisabled={!attributes.id}
-						setAttributes={setAttributes}
+						value={ !! attributes.mute }
+						isDisabled={ ! attributes.id }
+						setAttributes={ setAttributes }
 					/>
 					<NCB_EmbedYouTubePortraitControls
-						value={!!attributes.portrait}
-						isDisabled={!attributes.id}
-						setAttributes={setAttributes}
+						value={ !! attributes.portrait }
+						isDisabled={ ! attributes.id }
+						setAttributes={ setAttributes }
 					/>
 				</ToolbarGroup>
 			</BlockControls>
 
-			{!attributes.id && (
-				<div className={_CLASSES.root}>
+			{ ! attributes.id && (
+				<div className={ _CLASSES.root }>
 					<YouTubeLogo />
 					<div>
 						<strong>
-							{_x(
+							{ _x(
 								'YouTube video URL or ID:',
 								'ncb-denhaag/embed-youtube: Title',
 								'ncb-community-blocks'
-							)}
+							) }
 						</strong>
 						<RichText
 							tagName="div"
-							className={_CLASSES.input}
+							className={ _CLASSES.input }
 							withoutInteractiveFormatting
-							placeholder={_x(
+							placeholder={ _x(
 								'YouTube video URL or ID…',
 								'ncb-denhaag/embed-youtube: Title',
 								'ncb-community-blocks'
-							)}
-							value={attributes.id}
-							onChange={(id) =>
-								setAttributes({ id: getYouTubeId(id) })
+							) }
+							value={ attributes.id }
+							onChange={ ( id ) =>
+								setAttributes( { id: getYouTubeId( id ) } )
 							}
-							allowedFormats={[]}
-							disableLineBreaks={true}
+							allowedFormats={ [] }
+							disableLineBreaks={ true }
 						/>
 					</div>
 					<div>
 						<strong>
-							{_x(
+							{ _x(
 								'ScreenReader caption:',
 								'denhaag/embed-youtube: Title',
 								'ncb-community-blocks'
-							)}
+							) }
 						</strong>
 						<RichText
 							tagName="div"
-							className={_CLASSES.input}
+							className={ _CLASSES.input }
 							withoutInteractiveFormatting
-							placeholder={_x(
+							placeholder={ _x(
 								'YouTube video ScreenReader caption…',
 								'denhaag/embed-youtube: Placeholder',
 								'ncb-community-blocks'
-							)}
-							value={attributes.title}
-							onChange={(description) =>
-								setAttributes({ description })
+							) }
+							value={ attributes.title }
+							onChange={ ( description ) =>
+								setAttributes( { description } )
 							}
-							allowedFormats={[]}
-							disableLineBreaks={true}
+							allowedFormats={ [] }
+							disableLineBreaks={ true }
 						/>
 					</div>
 				</div>
-			)}
-			{!!attributes.id && iframeSrc && (
+			) }
+			{ !! attributes.id && iframeSrc && (
 				<>
 					<iframe
-						className={_CLASSES.root}
+						className={ _CLASSES.root }
 						frameBorder="0"
 						title="video-embed"
-						src={iframeSrc}
+						src={ iframeSrc }
 					/>
-					<details className={_CLASSES.details}>
-						<summary className={_CLASSES.summary}>
-							{_x(
+					<details className={ _CLASSES.details }>
+						<summary className={ _CLASSES.summary }>
+							{ _x(
 								'Option',
 								'denhaag/embed-youtube: Summary',
 								'ncb-community-blocks'
-							)}
+							) }
 							<Chevron />
 						</summary>
-						<div className={_CLASSES.content}>
+						<div className={ _CLASSES.content }>
 							<div>
 								<strong>
-									{_x(
+									{ _x(
 										'YouTube video URL or ID:',
 										'denhaag/embed-youtube: Title',
 										'ncb-community-blocks'
-									)}
+									) }
 								</strong>
 								<RichText
 									tagName="div"
-									className={_CLASSES.input}
+									className={ _CLASSES.input }
 									withoutInteractiveFormatting
-									placeholder={_x(
+									placeholder={ _x(
 										'YouTube video URL or ID…',
 										'denhaag/embed-youtube: Title',
 										'ncb-community-blocks'
-									)}
-									value={attributes.id}
-									onChange={(id) =>
-										setAttributes({ id: getYouTubeId(id) })
+									) }
+									value={ attributes.id }
+									onChange={ ( id ) =>
+										setAttributes( {
+											id: getYouTubeId( id ),
+										} )
 									}
-									allowedFormats={[]}
-									disableLineBreaks={true}
+									allowedFormats={ [] }
+									disableLineBreaks={ true }
 								/>
 							</div>
 							<div>
 								<strong>
-									{_x(
+									{ _x(
 										'ScreenReader caption:',
 										'denhaag/embed-youtube: Title',
 										'ncb-community-blocks'
-									)}
+									) }
 								</strong>
 								<RichText
 									tagName="div"
-									className={_CLASSES.input}
+									className={ _CLASSES.input }
 									withoutInteractiveFormatting
-									placeholder={_x(
+									placeholder={ _x(
 										'YouTube video ScreenReader caption…',
 										'denhaag/embed-youtube: Placeholder',
 										'ncb-community-blocks'
-									)}
-									value={attributes.description}
-									onChange={(description) =>
-										setAttributes({ description })
+									) }
+									value={ attributes.description }
+									onChange={ ( description ) =>
+										setAttributes( { description } )
 									}
-									allowedFormats={[]}
-									disableLineBreaks={true}
+									allowedFormats={ [] }
+									disableLineBreaks={ true }
 								/>
 							</div>
 						</div>
 					</details>
 				</>
-			)}
+			) }
 		</>
 	);
 }

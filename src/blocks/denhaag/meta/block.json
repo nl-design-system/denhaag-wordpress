@@ -24,7 +24,7 @@
 		"html": false,
 		"multiple": false
 	},
-	"editorStyle": ["ncb-denhaag-meta-block-editor"],
+	"editorStyle": [ "ncb-denhaag-meta-block-editor" ],
 	"style": [
 		"ncb-denhaag-meta-block",
 		"ncb-denhaag-button-block",
@@ -32,6 +32,6 @@
 		"ncb-denhaag-heading-block",
 		"ncb-denhaag-paragraph-block"
 	],
-	"script": ["ncb-denhaag-meta-block", "ncb-denhaag-button-block"],
-	"keywords": ["date", "denhaag", "excerpt", "heading", "meta", "title"]
+	"script": [ "ncb-denhaag-meta-block", "ncb-denhaag-button-block" ],
+	"keywords": [ "date", "denhaag", "excerpt", "heading", "meta", "title" ]
 }

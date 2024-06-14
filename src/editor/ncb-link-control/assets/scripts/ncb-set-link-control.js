@@ -14,13 +14,13 @@ import { __experimentalLinkControl as LinkControl } from '@wordpress/block-edito
  * @return {JSX.Element}
  * @constructor
  */
-const NCB_SetLinkControl = ({
+const NCB_SetLinkControl = ( {
 	attribute = 'link',
 	value = {},
 	setAttributes,
 	options = {},
-}) => {
-	return useMemo(() => {
+} ) => {
+	return useMemo( () => {
 		const config = {
 			...{
 				forceIsEditingLink: true,
@@ -37,13 +37,13 @@ const NCB_SetLinkControl = ({
 			// Copied from `@wordpress/block-editor/build-module/components/constants.js`.
 			{
 				id: 'opensInNewTab',
-				title: __('Open in new tab'),
+				title: __( 'Open in new tab' ),
 			},
 		];
 
 		// Check if `wordpress-seo` plugin is active.
-		if (!!window.yoast) {
-			default_settings.push({
+		if ( !! window.yoast ) {
+			default_settings.push( {
 				id: 'noFollow',
 				title: sprintf(
 					__(
@@ -54,9 +54,9 @@ const NCB_SetLinkControl = ({
 					'"',
 					'.'
 				),
-			});
+			} );
 
-			default_settings.push({
+			default_settings.push( {
 				id: 'sponsored',
 				title: sprintf(
 					__(
@@ -67,87 +67,87 @@ const NCB_SetLinkControl = ({
 					'"',
 					'.'
 				),
-			});
+			} );
 		}
 
 		return (
 			<Dropdown
-				renderToggle={({ onToggle }) => (
+				renderToggle={ ( { onToggle } ) => (
 					<ToolbarButton
-						icon={link}
-						label={_x(
+						icon={ link }
+						label={ _x(
 							'Add link',
 							'NCB_SetLinkControl label',
 							'nlds-community-blocks'
-						)}
-						onClick={onToggle}
+						) }
+						onClick={ onToggle }
 						isActive={
-							0 !== Object.keys(value).length &&
-							value.hasOwnProperty('url') &&
+							0 !== Object.keys( value ).length &&
+							value.hasOwnProperty( 'url' ) &&
 							value.url.length > 0
 						}
 					/>
-				)}
-				renderContent={() => (
+				) }
+				renderContent={ () => (
 					<>
-						{!!config.settings &&
+						{ !! config.settings &&
 							'boolean' === typeof config.settings && (
 								<LinkControl
 									forceIsEditingLink={
 										config.forceIsEditingLink
 									}
-									onChange={(link) =>
-										setAttributes({ [attribute]: link })
+									onChange={ ( link ) =>
+										setAttributes( { [ attribute ]: link } )
 									}
-									value={value && value}
-									hasRichPreviews={config.hasRichPreviews}
-									hasTextControl={config.hasTextControl}
-									showSuggestions={config.showSuggestions}
+									value={ value && value }
+									hasRichPreviews={ config.hasRichPreviews }
+									hasTextControl={ config.hasTextControl }
+									showSuggestions={ config.showSuggestions }
 									createSuggestionButtonText={
 										config.createSuggestionButtonText
 									}
-									settings={default_settings}
+									settings={ default_settings }
 								/>
-							)}
-						{!!config.settings &&
+							) }
+						{ !! config.settings &&
 							'object' === typeof config.settings && (
 								<LinkControl
 									forceIsEditingLink={
 										config.forceIsEditingLink
 									}
-									onChange={(link) =>
-										setAttributes({ [attribute]: link })
+									onChange={ ( link ) =>
+										setAttributes( { [ attribute ]: link } )
 									}
-									value={value && value}
-									hasRichPreviews={config.hasRichPreviews}
-									hasTextControl={config.hasTextControl}
-									showSuggestions={config.showSuggestions}
+									value={ value && value }
+									hasRichPreviews={ config.hasRichPreviews }
+									hasTextControl={ config.hasTextControl }
+									showSuggestions={ config.showSuggestions }
 									createSuggestionButtonText={
 										config.createSuggestionButtonText
 									}
-									settings={config.settings}
+									settings={ config.settings }
 								/>
-							)}
-						{!config.settings && (
+							) }
+						{ ! config.settings && (
 							<LinkControl
-								forceIsEditingLink={config.forceIsEditingLink}
-								onChange={(link) =>
-									setAttributes({ [attribute]: link })
+								forceIsEditingLink={ config.forceIsEditingLink }
+								onChange={ ( link ) =>
+									setAttributes( { [ attribute ]: link } )
 								}
-								value={value && value}
-								hasRichPreviews={config.hasRichPreviews}
-								hasTextControl={config.hasTextControl}
-								showSuggestions={config.showSuggestions}
+								value={ value && value }
+								hasRichPreviews={ config.hasRichPreviews }
+								hasTextControl={ config.hasTextControl }
+								showSuggestions={ config.showSuggestions }
 								createSuggestionButtonText={
 									config.createSuggestionButtonText
 								}
-								settings={[]}
+								settings={ [] }
 							/>
-						)}
+						) }
 					</>
-				)}
+				) }
 			/>
 		);
-	}, [value, options]);
+	}, [ value, options ] );
 };
 export default NCB_SetLinkControl;

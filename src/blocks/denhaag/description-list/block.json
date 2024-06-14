@@ -21,8 +21,8 @@
 		"customClassName": false,
 		"html": false
 	},
-	"style": ["ncb-denhaag-description-list-block", "ncb-denhaag-link"],
-	"editorStyle": ["ncb-denhaag-description-list-block-editor"],
-	"keywords": ["denhaag", "list", "table"],
+	"style": [ "ncb-denhaag-description-list-block", "ncb-denhaag-link" ],
+	"editorStyle": [ "ncb-denhaag-description-list-block-editor" ],
+	"keywords": [ "denhaag", "list", "table" ],
 	"version": "2.0.0"
 }

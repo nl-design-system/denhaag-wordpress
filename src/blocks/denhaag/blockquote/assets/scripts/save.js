@@ -1,6 +1,6 @@
 import { RichText } from '@wordpress/block-editor';
 
-export default function Save({ attributes }) {
+export default function Save( { attributes } ) {
 	return (
 		<figure className="denhaag-blockquote">
 			<blockquote
@@ -11,15 +11,15 @@ export default function Save({ attributes }) {
 						: null
 				}
 			>
-				<RichText.Content tagName="p" value={attributes.quote} />
+				<RichText.Content tagName="p" value={ attributes.quote } />
 			</blockquote>
-			{!!attributes.hasAuthor && (
+			{ !! attributes.hasAuthor && (
 				<RichText.Content
 					tagName="figcaption"
 					className="denhaag-blockquote__attribution"
-					value={attributes.author}
+					value={ attributes.author }
 				/>
-			)}
+			) }
 		</figure>
 	);
 }

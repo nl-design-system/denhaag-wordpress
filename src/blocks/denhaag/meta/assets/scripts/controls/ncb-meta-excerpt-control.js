@@ -12,20 +12,20 @@ import { postExcerpt as icon } from '@wordpress/icons';
  * @return {unknown}
  * @constructor
  */
-const NCB_MetaExcerptControl = ({
+const NCB_MetaExcerptControl = ( {
 	value,
 	setAttributes,
 	isDisabled = false,
-}) => {
+} ) => {
 	// On update `value` the controller will be rendered.
-	return useMemo(() => {
+	return useMemo( () => {
 		return (
 			<ToolbarButton
-				onClick={() => setAttributes({ excerpt: !value })}
-				icon={icon}
-				label={sprintf(
+				onClick={ () => setAttributes( { excerpt: ! value } ) }
+				icon={ icon }
+				label={ sprintf(
 					'%s %s',
-					!!value
+					!! value
 						? _x(
 								'Disable',
 								'ncb-denhaag/meta: Control label',
@@ -41,12 +41,12 @@ const NCB_MetaExcerptControl = ({
 						'ncb-denhaag/meta: Control label',
 						'nlds-community-blocks'
 					)
-				)}
-				isPressed={value}
-				disabled={isDisabled}
+				) }
+				isPressed={ value }
+				disabled={ isDisabled }
 			/>
 		);
-	}, [value, isDisabled]);
+	}, [ value, isDisabled ] );
 };
 
 export default NCB_MetaExcerptControl;

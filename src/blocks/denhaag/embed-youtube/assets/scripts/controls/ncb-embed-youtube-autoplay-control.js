@@ -12,28 +12,28 @@ import { ReactComponent as icon } from '../../icons/autoplay.svg';
  * @returns {unknown}
  * @constructor
  */
-const NCB_EmbedYouTubeAutoPlayControls = ({
+const NCB_EmbedYouTubeAutoPlayControls = ( {
 	value = false,
 	isDisabled = false,
 	setAttributes,
-}) => {
-	return useMemo(() => {
-		const label = !!value
-			? __('Disable', 'nlds-community-blocks')
-			: __('Enable', 'nlds-community-blocks');
+} ) => {
+	return useMemo( () => {
+		const label = !! value
+			? __( 'Disable', 'nlds-community-blocks' )
+			: __( 'Enable', 'nlds-community-blocks' );
 		return (
 			<ToolbarButton
-				icon={icon}
-				label={sprintf(
-					__('%s autoplay', 'nlds-community-blocks'),
+				icon={ icon }
+				label={ sprintf(
+					__( '%s autoplay', 'nlds-community-blocks' ),
 					label
-				)}
-				onClick={() => setAttributes({ autoplay: !value })}
-				isActive={!!value}
-				disabled={!!isDisabled}
+				) }
+				onClick={ () => setAttributes( { autoplay: ! value } ) }
+				isActive={ !! value }
+				disabled={ !! isDisabled }
 			/>
 		);
-	}, [value]);
+	}, [ value ] );
 };
 
 export default NCB_EmbedYouTubeAutoPlayControls;

@@ -11,11 +11,11 @@ import { useMemo } from '@wordpress/element';
  * @return {unknown}
  * @constructor
  */
-const NCB_ButtonSizeControl = ({
+const NCB_ButtonSizeControl = ( {
 	value = false,
 	isDisabled = false,
 	setAttributes,
-}) => {
+} ) => {
 	/*
 	const onSizeChange = ( newKey ) => {
 		setActiveSize( newKey );
@@ -40,7 +40,7 @@ const NCB_ButtonSizeControl = ({
 	);
  */
 	// On update `value` the controller will be rendered.
-	return useMemo(() => {
+	return useMemo( () => {
 		const _SIZES = [
 			{
 				label: _x(
@@ -62,29 +62,29 @@ const NCB_ButtonSizeControl = ({
 
 		return (
 			<ToolbarGroup>
-				{_SIZES.map((s) => {
+				{ _SIZES.map( ( s ) => {
 					return (
 						<ToolbarButton
-							key={s.value}
-							onClick={() => setAttributes({ size: s.value })}
-							label={sprintf(
+							key={ s.value }
+							onClick={ () => setAttributes( { size: s.value } ) }
+							label={ sprintf(
 								_x(
 									'Set %s button style',
 									'ncb-denhaag/button: Control label',
 									'nlds-community-blocks'
 								),
 								s.label
-							)}
-							isPressed={s.value === value}
-							disabled={isDisabled}
+							) }
+							isPressed={ s.value === value }
+							disabled={ isDisabled }
 						>
-							{s.label}
+							{ s.label }
 						</ToolbarButton>
 					);
-				})}
+				} ) }
 			</ToolbarGroup>
 		);
-	}, [value, isDisabled]);
+	}, [ value, isDisabled ] );
 };
 
 export default NCB_ButtonSizeControl;

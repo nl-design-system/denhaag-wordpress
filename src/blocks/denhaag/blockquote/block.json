@@ -35,7 +35,7 @@
 		"customClassName": false,
 		"html": false
 	},
-	"style": ["ncb-denhaag-blockquote-block"],
+	"style": [ "ncb-denhaag-blockquote-block" ],
 	"version": "2.0.0",
-	"keywords": ["cite", "citation", "denhaag", "quote"]
+	"keywords": [ "cite", "citation", "denhaag", "quote" ]
 }

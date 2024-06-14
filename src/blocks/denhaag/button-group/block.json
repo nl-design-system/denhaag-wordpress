@@ -11,12 +11,12 @@
 			"default": 1
 		}
 	},
-	"keywords": ["button", "buttons", "denhaag", "group"],
+	"keywords": [ "button", "buttons", "denhaag", "group" ],
 	"supports": {
 		"className": false,
 		"customClassName": false,
 		"html": false
 	},
-	"style": ["ncb-denhaag-button-group-block"],
-	"editorStyle": ["ncb-denhaag-button-group-block-editor"]
+	"style": [ "ncb-denhaag-button-group-block" ],
+	"editorStyle": [ "ncb-denhaag-button-group-block-editor" ]
 }

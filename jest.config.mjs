@@ -3,6 +3,6 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 export default {
 	testEnvironment: 'jsdom',
-	testPathIgnorePatterns: ['/dist/'],
+	testPathIgnorePatterns: [ '/dist/' ],
 	verbose: true,
 };

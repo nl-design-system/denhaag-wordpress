@@ -8,7 +8,7 @@
 		"level": {
 			"type": "number",
 			"default": 4,
-			"enum": [2, 3, 4]
+			"enum": [ 2, 3, 4 ]
 		},
 		"caption": {
 			"type": "string",
@@ -20,13 +20,13 @@
 		},
 		"allowedLevels": {
 			"type": "array",
-			"default": [2, 3, 4],
-			"enum": [2, 3, 4]
+			"default": [ 2, 3, 4 ],
+			"enum": [ 2, 3, 4 ]
 		},
 		"appearance": {
 			"type": "number",
 			"default": 4,
-			"enum": [2, 3, 4]
+			"enum": [ 2, 3, 4 ]
 		},
 		"isDark": {
 			"type": "boolean",
@@ -38,12 +38,12 @@
 		"customClassName": false,
 		"html": false
 	},
-	"style": ["ncb-denhaag-link-group-block", "ncb-denhaag-heading-block"],
+	"style": [ "ncb-denhaag-link-group-block", "ncb-denhaag-heading-block" ],
 	"editorStyle": [
 		"ncb-denhaag-heading-block-editor",
 		"ncb-denhaag-link-group-block-editor"
 	],
-	"keywords": ["denhaag", "group", "links"],
+	"keywords": [ "denhaag", "group", "links" ],
 	"textdomain": "nlds-community-blocks",
 	"version": "1.0.0"
 }

@@ -11,42 +11,44 @@ import NCB_ButtonIconControl from './controls/ncb-button-icon-control';
 import NCB_ButtonVariantControl from './controls/ncb-button-variant-control';
 import NCB_ButtonIconBeforeControl from './controls/ncb-button-icon-before-control';
 
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit( { attributes, setAttributes } ) {
 	/**
 	 * Check if is external url.
 	 *
 	 * @type {boolean}
 	 */
-	const isExternal = useMemo(() => {
-		if (!attributes.link?.url) {
+	const isExternal = useMemo( () => {
+		if ( ! attributes.link?.url ) {
 			return false;
 		}
 
 		return (
 			'URL' === attributes.link?.type &&
 			attributes.link?.url &&
-			!attributes.link.url.includes(window.location.origin)
+			! attributes.link.url.includes( window.location.origin )
 		);
-	}, [attributes.link]);
+	}, [ attributes.link ] );
 
-	const _CLASSES = useMemo(() => {
+	const _CLASSES = useMemo( () => {
 		return {
-			root: classNames('denhaag-button', {
-				[`denhaag-button--${attributes.variant}-action`]:
-					!!attributes.variant,
+			root: classNames( 'denhaag-button', {
+				[ `denhaag-button--${ attributes.variant }-action` ]:
+					!! attributes.variant,
 				'denhaag-button--end-icon':
-					(!!attributes.icon && !attributes.iconBefore) ||
-					!!isExternal,
+					( !! attributes.icon && ! attributes.iconBefore ) ||
+					!! isExternal,
 				'denhaag-button--start-icon':
-					!!attributes.icon && !!attributes.iconBefore && !isExternal,
-				[`denhaag-button--${attributes.size}`]:
+					!! attributes.icon &&
+					!! attributes.iconBefore &&
+					! isExternal,
+				[ `denhaag-button--${ attributes.size }` ]:
 					'default' !== attributes.size,
-				'denhaag-button--external': !!isExternal,
-				'denhaag-button--disabled': !attributes.link?.url,
+				'denhaag-button--external': !! isExternal,
+				'denhaag-button--disabled': ! attributes.link?.url,
 				'denhaag-button--icon-only':
-					!!attributes.icon &&
-					!(attributes.link && attributes.link.title),
-			}),
+					!! attributes.icon &&
+					! ( attributes.link && attributes.link.title ),
+			} ),
 			icon: 'denhaag-button__icon',
 		};
 	}, [
@@ -56,16 +58,16 @@ export default function Edit({ attributes, setAttributes }) {
 		attributes.size,
 		attributes.variant,
 		isExternal,
-	]);
+	] );
 
-	useLayoutEffect(() => {
-		if (!attributes.icon && !!attributes.iconBefore) {
-			setAttributes({ iconBefore: false });
+	useLayoutEffect( () => {
+		if ( ! attributes.icon && !! attributes.iconBefore ) {
+			setAttributes( { iconBefore: false } );
 		}
-		if (!!attributes.icon && !isExternal) {
-			setAttributes({ icon: true });
+		if ( !! attributes.icon && ! isExternal ) {
+			setAttributes( { icon: true } );
 		}
-	}, []);
+	}, [] );
 
 	/**
 	 * Returns icon with wrapper based on if it's an external or internal icon.
@@ -74,91 +76,93 @@ export default function Edit({ attributes, setAttributes }) {
 	 * @constructor
 	 */
 	const Icon = () =>
-		useMemo(() => {
-			if (!!isExternal) {
+		useMemo( () => {
+			if ( !! isExternal ) {
 				return (
-					<span className={_CLASSES.icon}>
+					<span className={ _CLASSES.icon }>
 						<ExternalLinkIcon />
 					</span>
 				);
 			}
 
 			return (
-				<span className={_CLASSES.icon}>
+				<span className={ _CLASSES.icon }>
 					<ArrowRightIcon />
 				</span>
 			);
-		}, [isExternal]);
+		}, [ isExternal ] );
 
 	return (
 		<>
 			<BlockControls>
 				<NCB_LinkControls
-					value={attributes.link}
-					setAttributes={setAttributes}
+					value={ attributes.link }
+					setAttributes={ setAttributes }
 				/>
 				<ToolbarGroup>
 					<NCB_ButtonIconControl
-						value={attributes.icon}
-						isDisabled={!!isExternal || !attributes?.link}
-						setAttributes={setAttributes}
+						value={ attributes.icon }
+						isDisabled={ !! isExternal || ! attributes?.link }
+						setAttributes={ setAttributes }
 					/>
 					<NCB_ButtonIconBeforeControl
-						value={attributes.iconBefore}
+						value={ attributes.iconBefore }
 						isDisabled={
-							!attributes.icon ||
-							!!isExternal ||
-							!attributes?.link
+							! attributes.icon ||
+							!! isExternal ||
+							! attributes?.link
 						}
-						setAttributes={setAttributes}
+						setAttributes={ setAttributes }
 					/>
 				</ToolbarGroup>
 				<NCB_ButtonSizeControl
-					value={attributes.size}
-					setAttributes={setAttributes}
-					isDisabled={!attributes?.link}
+					value={ attributes.size }
+					setAttributes={ setAttributes }
+					isDisabled={ ! attributes?.link }
 				/>
 				<NCB_ButtonVariantControl
-					value={attributes.variant}
-					isDisabled={!attributes?.link}
-					setAttributes={setAttributes}
+					value={ attributes.variant }
+					isDisabled={ ! attributes?.link }
+					setAttributes={ setAttributes }
 				/>
 			</BlockControls>
 
-			{!!attributes.link && (
-				<div className={_CLASSES.root}>
-					{!!attributes.icon && !!attributes.iconBefore && <Icon />}
+			{ !! attributes.link && (
+				<div className={ _CLASSES.root }>
+					{ !! attributes.icon && !! attributes.iconBefore && (
+						<Icon />
+					) }
 					<RichText
 						withoutInteractiveFormatting
-						placeholder={_x(
+						placeholder={ _x(
 							'Button label…',
 							'ncb-denhaag/button: Placeholder',
 							'nlds-community-blocks'
-						)}
-						value={attributes.link.title}
-						onChange={(text) => {
-							const link = !!attributes.link
+						) }
+						value={ attributes.link.title }
+						onChange={ ( text ) => {
+							const link = !! attributes.link
 								? attributes.link
 								: {};
 							link.title = text;
-							setAttributes({ link });
-						}}
-						allowedFormats={[]}
+							setAttributes( { link } );
+						} }
+						allowedFormats={ [] }
 					/>
-					{((!!attributes.icon && !attributes.iconBefore) ||
-						!!isExternal) && <Icon />}
+					{ ( ( !! attributes.icon && ! attributes.iconBefore ) ||
+						!! isExternal ) && <Icon /> }
 				</div>
-			)}
+			) }
 
-			{!attributes.link && (
-				<div className={_CLASSES.root}>
-					{_x(
+			{ ! attributes.link && (
+				<div className={ _CLASSES.root }>
+					{ _x(
 						'Button label…',
 						'ncb-denhaag/button: Placeholder',
 						'nlds-community-blocks'
-					)}
+					) }
 				</div>
-			)}
+			) }
 		</>
 	);
 }

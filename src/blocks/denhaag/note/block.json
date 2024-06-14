@@ -12,7 +12,7 @@
 		"variant": {
 			"type": "string",
 			"default": "info",
-			"enum": ["info", "warning"]
+			"enum": [ "info", "warning" ]
 		}
 	},
 	"example": {
@@ -27,7 +27,7 @@
 		"customClassName": false,
 		"html": false
 	},
-	"style": ["ncb-denhaag-note-block", "ncb-denhaag-link"],
+	"style": [ "ncb-denhaag-note-block", "ncb-denhaag-link" ],
 	"variations": [
 		{
 			"name": "ncb-denhaag/note-warning",
@@ -45,6 +45,6 @@
 			}
 		}
 	],
-	"keywords": ["denhaag", "info", "information", "notification", "warning"],
+	"keywords": [ "denhaag", "info", "information", "notification", "warning" ],
 	"version": "1.2.0"
 }

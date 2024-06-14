@@ -12,14 +12,14 @@
 			"default": "full"
 		}
 	},
-	"keywords": ["denhaag", "image", "featured"],
+	"keywords": [ "denhaag", "image", "featured" ],
 	"supports": {
 		"className": false,
 		"customClassName": false,
 		"html": false,
 		"multiple": false
 	},
-	"style": ["ncb-denhaag-featured-image-block", "ncb-denhaag-image-block"],
-	"editorStyle": ["ncb-denhaag-featured-image-editor"],
+	"style": [ "ncb-denhaag-featured-image-block", "ncb-denhaag-image-block" ],
+	"editorStyle": [ "ncb-denhaag-featured-image-editor" ],
 	"version": "1.0.0"
 }

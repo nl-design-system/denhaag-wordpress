@@ -12,26 +12,29 @@ import { ReactComponent as icon } from '../../icons/repeat.svg';
  * @returns {unknown}
  * @constructor
  */
-const NCB_EmbedYouTubeLoopControl = ({
+const NCB_EmbedYouTubeLoopControl = ( {
 	value = false,
 	isDisabled = false,
 	setAttributes,
-}) => {
-	return useMemo(() => {
-		const label = !!value
-			? __('Unloop', 'nlds-community-blocks')
-			: __('Loop', 'nlds-community-blocks');
+} ) => {
+	return useMemo( () => {
+		const label = !! value
+			? __( 'Unloop', 'nlds-community-blocks' )
+			: __( 'Loop', 'nlds-community-blocks' );
 
 		return (
 			<ToolbarButton
-				icon={icon}
-				label={sprintf(__('%s video', 'nlds-community-blocks'), label)}
-				onClick={() => setAttributes({ loop: !value })}
-				isActive={!!value}
-				disabled={!!isDisabled}
+				icon={ icon }
+				label={ sprintf(
+					__( '%s video', 'nlds-community-blocks' ),
+					label
+				) }
+				onClick={ () => setAttributes( { loop: ! value } ) }
+				isActive={ !! value }
+				disabled={ !! isDisabled }
 			/>
 		);
-	}, [value]);
+	}, [ value ] );
 };
 
 export default NCB_EmbedYouTubeLoopControl;
